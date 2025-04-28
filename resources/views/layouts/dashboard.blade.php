@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>Lavaravel 7 Vue.js 2 Test | SMM</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <link rel="stylesheet" href="/css/app.css">
@@ -75,21 +75,32 @@
             </li>
             
             <li class="nav-item">
-                <router-link to="/dashboard" class="nav-link">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-sign-out"></i>
-                <p>
-                    Request Product
+                <p>Request Product
+                    <i class="right fas fa-angle-left"></i>
                 </p>
-                </router-link>
-            </li>
-            <li class="nav-item">
-                <router-link to="/dashboard" class="nav-link">
-                <i class="nav-icon fas fa-sign-in"></i>
-                <p>
-                    Putaway Product
-                </p>
-                </router-link>
-            </li>
+              </a>
+
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <router-link to="/request-product-create" class="nav-link">
+                    <i class="nav-icon fas fa-list-alt"></i>
+                    <p>
+                        Request Product
+                    </p>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/request-products" class="nav-link">
+                    <i class="nav-icon fas fa-list"></i>
+                    <p>
+                        Request Lists
+                    </p>
+                    </router-link>
+                </li>
+              </ul>
+          </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-briefcase"></i>
