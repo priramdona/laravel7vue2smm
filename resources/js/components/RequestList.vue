@@ -36,8 +36,6 @@
         </div>
       </div>
 
-
-    <!-- Modal -->
     <div v-if="showModal" class="modal fade  z-index: 9999" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -147,27 +145,3 @@ export default {
   }
 }
 </script>
-
-  <!-- <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        requests: []
-      }
-    },
-    methods: {
-      fetchRequests() {
-        axios.get('/api/request-products')
-          .then(res => {
-            this.requests = res.data.data;
-          });
-      }
-    },
-    mounted() {
-      this.fetchRequests();
-    }
-  }
-  </script> -->
-  

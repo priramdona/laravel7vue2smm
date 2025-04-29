@@ -175,11 +175,11 @@
         axios.get(`/api/products/${id}`)
           .then(res => {
             this.$set(this.items[index], 'product', res.data);
-            this.submitQty = Number(res.data.stock) === 0;
-            this.submitAdd = Number(res.data.stock) === 0;
-            this.submitDisabled = Number(res.data.stock) === 0;
+            this.submitQty = Number(res.data.stock) < 1;
+            this.submitAdd = Number(res.data.stock) < 1;
+            this.submitDisabled = Number(res.data.stock) < 1;
 
-            if(Number(res.data.stock) === 0){
+            if(Number(res.data.stock) < 1){
               Swal.fire({
                 icon: 'error',
                 title: 'Out of Stock!',

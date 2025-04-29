@@ -4604,10 +4604,10 @@ __webpack_require__.r(__webpack_exports__);
       if (!id) return;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/products/".concat(id)).then(function (res) {
         _this3.$set(_this3.items[index], 'product', res.data);
-        _this3.submitQty = Number(res.data.stock) === 0;
-        _this3.submitAdd = Number(res.data.stock) === 0;
-        _this3.submitDisabled = Number(res.data.stock) === 0;
-        if (Number(res.data.stock) === 0) {
+        _this3.submitQty = Number(res.data.stock) < 1;
+        _this3.submitAdd = Number(res.data.stock) < 1;
+        _this3.submitDisabled = Number(res.data.stock) < 1;
+        if (Number(res.data.stock) < 1) {
           sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
             icon: 'error',
             title: 'Out of Stock!',

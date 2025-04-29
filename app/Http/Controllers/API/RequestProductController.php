@@ -22,7 +22,7 @@ class RequestProductController extends Controller
      */
     public function index()
     {
-        $requests = RequestProduct::with('requestProductItems.product', 'user', 'employee')->latest()->get();
+        $requests = RequestProduct::with('requestProductItems.product', 'user', 'employee.departement')->latest()->get();
         return response()->json($requests);
 
         $requestProducts = RequestProduct::with(['requestProductItems', 'employee.departement', 'user'])
@@ -62,7 +62,7 @@ class RequestProductController extends Controller
         
         if (!$employee) {
             return response()->json([
-                'message' => 'Employee tidak ditemukan dengan NIK tersebut.',
+                'message' => 'Employee Not Found',
             ], 404);
         }
 
@@ -109,7 +109,20 @@ class RequestProductController extends Controller
                 'remarks' => $item['remarks'],
                 'status' => $productStatus, 
             ]);
-            Product::where('id', $requestProductItemData->product_id)->decrement('stock', $requestProductItemData->qty);
+
+            $decrementCount = 0;
+            $productUpdate = Product::find($item['product_id']);
+            
+            if ($requestProductItemData->qty > $productUpdate->stock){
+                $decrementCount =  0;
+            }else{   
+                $decrementCount = $productUpdate->stock - $requestProductItemData->qty;
+            }
+
+            $productUpdate->stock = $decrementCount;
+            $productUpdate->save();
+
+            // Product::where('id', $requestProductItemData->product_id)->decrement('stock', $requestProductItemData->qty);
 
         }
 

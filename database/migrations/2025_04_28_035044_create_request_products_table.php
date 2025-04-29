@@ -19,7 +19,7 @@ class CreateRequestProductsTable extends Migration
             $table->foreignUuid('user_id')->references('id')->on('users');
             $table->foreignUuid('employee_id')->references('id')->on('employees');
             $table->date('request_date');
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->enum('status', ['pending', 'approved'])->default('pending');
             $table->timestamps();
             $table->softDeletes();
         });
