@@ -7,13 +7,16 @@ let routes = [
     { path: '/profile', component: require('./components/Profile.vue').default },
     { path: '/products', component: require('./components/Products.vue').default },
     { path: '/employes', component: require('./components/Employes.vue').default },
+    { path: '/departments', component: require('./components/Department.vue').default },
+    { path: '/locations', component: require('./components/Locations.vue').default },
+    { path: '/units', component: require('./components/Units.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
     { path: '/request-products', name: 'request-products.index', component: RequestProductIndex },
     { path: '/request-product-create', name: 'request-products.create', component: RequestProductCreate },
   ]
 
 const router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     routes
 });
 

@@ -111,14 +111,14 @@
                 </a>
 
                 <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <router-link to="/products" class="nav-link">
-                            <i class="far fa-archive nav-icon"></i>
-                            <p>Locations</p>
-                        </router-link>
-                        </li>
                 <li class="nav-item">
-                    <router-link to="/products" class="nav-link">
+                  <router-link to="/locations" class="nav-link">
+                      <i class="far fa-archive nav-icon"></i>
+                      <p>Locations</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/units" class="nav-link">
                         <i class="far fa-calculator nav-icon"></i>
                         <p>Units</p>
                     </router-link>
@@ -142,10 +142,10 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="#" class="nav-link">
+                <router-link to="/departments" class="nav-link">
                     <i class="far fa-sitemap nav-icon"></i>
                     <p>Departements</p>
-                </a>
+                </router-link>
                 </li>
                 <li class="nav-item">
                 <router-link to="/employes" class="nav-link">
@@ -160,7 +160,7 @@
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>
-                User Settings
+                Settings
                 <i class="right fas fa-angle-left"></i>
                 </p>
             </a>
@@ -172,16 +172,21 @@
                 </router-link>
                 </li>
                 <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="far fa-key nav-icon"></i>
-                    <p>Change Password</p>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a href="#" class="nav-link">
+                  {{-- <a href="#" class="nav-link">
+                      <i class="far fa-power-off nav-icon"></i>
+                      <p>Logout</p>
+                  </a> --}}
+                <a class="nav-link" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-formmenu').submit();">
+                    
                     <i class="far fa-power-off nav-icon"></i>
-                    <p>Logout</p>
+                    {{ __('Logout') }}
                 </a>
+        
+                <form id="logout-formmenu" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
                 </li>
             </ul>
             </li>

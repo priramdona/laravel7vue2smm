@@ -23,7 +23,7 @@ class RequestProductController extends Controller
     public function index()
     {
         $requests = RequestProduct::with('requestProductItems.product', 'user', 'employee')->latest()->get();
-    return response()->json($requests);
+        return response()->json($requests);
 
         $requestProducts = RequestProduct::with(['requestProductItems', 'employee.departement', 'user'])
         ->whereNull('deleted_at')

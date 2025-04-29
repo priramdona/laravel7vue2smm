@@ -43,6 +43,7 @@ class RequestProductSeeder extends Seeder
                         'product_id' => $productData->id,
                         'qty' => 1,
                         'status' => 'fulfilled',
+                        'remarks' => 'Data from Seeder',
                         'created_at' => now(),
                         'updated_at' => now(),
                     ]);

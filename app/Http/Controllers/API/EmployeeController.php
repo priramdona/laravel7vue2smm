@@ -18,6 +18,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::with('departement')
+        ->latest()
         ->whereNull('deleted_at')
         ->paginate(10);
 
@@ -122,7 +123,6 @@ class EmployeeController extends Controller
     {
         $employee = Employee::findOrFail($id);
         $employee->delete();
-        
         
         return response()->json(['message' => 'Employee has been deleted successfully.', 'employee' => $employee], 201);
         return response()->json([

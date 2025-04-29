@@ -163,7 +163,7 @@
       },
       fetchProducts() {
 
-        axios.get('/api/products')
+        axios.get('/api/getProducts')
           .then(res => {
             this.products = res.data;  
           });

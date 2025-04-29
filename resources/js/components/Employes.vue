@@ -4,7 +4,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Employee List</h3>
 
                 <div class="card-tools">
                   <button class="btn btn-success" data-toggle="modal" data-target="#modalAdd">
@@ -112,7 +112,6 @@
                     <HasError :form="form" field="email" />
                   </div>
                   
-                      <!-- Dropdown Departement -->
                   <div class="mb-3">
                     <label for="departement_id" class="form-label">Departement</label>
                     <select
@@ -130,7 +129,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <!-- <button type="submit" class="btn btn-primary">Save changes</button> -->
                   <Button :form="form" class="btn btn-primary">
                     {{ editMode ? 'Update' : 'Create' }}
                   </Button>
@@ -194,7 +192,7 @@ import Swal from 'sweetalert2';
           },
           loadDepartements(){
             // Ambil data departemen dari API saat komponen dibuat
-            axios.get('/api/departements')
+            axios.get('/api/getDepartements')
             .then(response => {
               this.departements = response.data; // Simpan data departemen
             })

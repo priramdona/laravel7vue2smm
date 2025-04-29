@@ -46,26 +46,29 @@ class ProductSeeder extends Seeder
             'Topi',
         ];
 
+        
+        
         foreach($dataUnits as $dataUnit) {
-            $unitInfo = Unit::create($dataUnit);
+            Unit::create($dataUnit);
+        }
 
-            for ($i=0; $i < 5 ; $i++) { 
+        $unitsInfo = Unit::query()->get();
 
-                foreach($dataLocations as $dataLocation) {
-                    $locationInfo = Location::create($dataLocation);
+        foreach($dataLocations as $dataLocation) {
+            $locationInfo = Location::create($dataLocation);
+            foreach($unitsInfo as $unitInfo) {
 
-                    for ($i=0; $i < 5 ; $i++) { 
-                        $productName = $faker->randomElement($productFaker);
-                        Product::create([
-                            'code' => strtoupper(substr(str_replace(' ', '', $productName), 0, 3)).$i,
-                            'name' => $productName,
-                            'unit_id' => $unitInfo->id,
-                            'location_id' => $locationInfo->id,
-                            'stock' => random_int(100, 999),
-                            'created_at' => now(),
-                            'updated_at' => now(),
-                        ]);
-                    }
+                for ($i=0; $i < 5 ; $i++) { 
+                    $productName = $faker->randomElement($productFaker);
+                    Product::create([
+                        'code' => strtoupper(substr(str_replace(' ', '', $productName), 0, 3)).$i,
+                        'name' => $productName .'-'.  $unitInfo->code,
+                        'unit_id' => $unitInfo->id,
+                        'location_id' => $locationInfo->id,
+                        'stock' => random_int(100, 999),
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
                 }
             }
         }

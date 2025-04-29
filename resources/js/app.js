@@ -15,10 +15,8 @@ import {
   AlertErrors,
   AlertSuccess
 } from 'vform/src/components/bootstrap4'
-// 'vform/src/components/bootstrap4'
-// 'vform/src/components/tailwind'
 
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Swal from 'sweetalert2'; 
 
 
 Vue.component(Button.name, Button)
