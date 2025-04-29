@@ -72,9 +72,10 @@ class RequestProductController extends Controller
         $statusRequest = 'pending';
 
         
+        // $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
         foreach ($request->input('items') as $item) {
             if( $item['product_status'] === "Fullfill"){
-                $statusRequest = 'approve'; 
+                $statusRequest = 'approved'; 
             }else{
                 $statusRequest = 'pending';
             }
