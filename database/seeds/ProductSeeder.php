@@ -46,8 +46,6 @@ class ProductSeeder extends Seeder
             'Topi',
         ];
 
-        
-        
         foreach($dataUnits as $dataUnit) {
             Unit::create($dataUnit);
         }
